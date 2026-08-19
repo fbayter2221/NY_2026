@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_11acaca25b26ad42a6265ed99c606c49 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+
+<style>
+@media (max-width: 700px) {
+  .leaflet-top.leaflet-right .leaflet-control {
+    margin-top: 92px !important;
+  }
+  .leaflet-control-layers {
+    max-width: 210px !important;
+  }
+  .leaflet-control-layers-expanded {
+    max-height: 46vh !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+</style>
+
+</head>
+<body>
+    
+    <div style="position:fixed;top:10px;left:50px;z-index:9999;background:white;padding:10px 14px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.25);font-family:Arial;font-size:15px;font-weight:bold">NYC · CityPASS + recomendaciones · 2–6 Sep 2026</div><div style="position:fixed;bottom:12px;left:12px;z-index:9999;background:white;padding:8px 10px;border-radius:7px;box-shadow:0 2px 6px rgba(0,0,0,.2);font-family:Arial;font-size:11px">🏨 Stanford = tú · New Yorker = tu amigo<br>🍴 Solo restaurantes de tu lista · ✈️ Aeropuertos omitidos</div>
+    
+            <div class="folium-map" id="map_11acaca25b26ad42a6265ed99c606c49" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_11acaca25b26ad42a6265ed99c606c49 = L.map(
+                "map_11acaca25b26ad42a6265ed99c606c49",
+                {
+                    center: [40.745, -73.98],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+            L.control.scale().addTo(map_11acaca25b26ad42a6265ed99c606c49);
+
+            
+
+        
+    
+            var tile_layer_2a240daef5f80adf6afce50f8fd8e424 = L.tileLayer(
+                "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 19,
+  "maxNativeZoom": 19,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors",
+  "subdomains": "abc",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_2a240daef5f80adf6afce50f8fd8e424.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_8cf78001c106b31b7faa7eaad18ba3c1 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_0661c56f6be1c671fd05667d2d62fffb = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_947919876eafb32c0a0e8089fbc69fb9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_b56570076b7df66b5e456a3e34e46f1f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_bc3cb8094bfc56f5b64c5b821cbfd8d8 = $(`<div id="html_bc3cb8094bfc56f5b64c5b821cbfd8d8" style="width: 100.0%; height: 100.0%;"><b>1. 12:00 — Hotel Stanford</b><br>Llegada, traslado y dejar equipaje<br><small>🚇 Taxi/Uber desde JFK</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_b56570076b7df66b5e456a3e34e46f1f.setContent(html_bc3cb8094bfc56f5b64c5b821cbfd8d8);
+            
+        
+
+        marker_0661c56f6be1c671fd05667d2d62fffb.bindPopup(popup_b56570076b7df66b5e456a3e34e46f1f)
+        ;
+
+        
+    
+    
+            marker_0661c56f6be1c671fd05667d2d62fffb.bindTooltip(
+                `<div>
+                     12:00 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0661c56f6be1c671fd05667d2d62fffb.setIcon(div_icon_947919876eafb32c0a0e8089fbc69fb9);
+            
+    
+            var marker_a449c62616d303870dbf870a5689358f = L.marker(
+                [40.7527, -73.9934],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_24da662d04ca095e24ee5b09670ce1d3 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e2\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_1e7a584492cad66e82dd0b730de1f4e6 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_9ed5c46e1351f2ff4ff40e81ca26bc8e = $(`<div id="html_9ed5c46e1351f2ff4ff40e81ca26bc8e" style="width: 100.0%; height: 100.0%;"><b>2. 14:15 — The New Yorker</b><br>Tu amigo deja equipaje / check-in<br><small>🚇 A pie desde Penn Station</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7527,-73.9934'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_1e7a584492cad66e82dd0b730de1f4e6.setContent(html_9ed5c46e1351f2ff4ff40e81ca26bc8e);
+            
+        
+
+        marker_a449c62616d303870dbf870a5689358f.bindPopup(popup_1e7a584492cad66e82dd0b730de1f4e6)
+        ;
+
+        
+    
+    
+            marker_a449c62616d303870dbf870a5689358f.bindTooltip(
+                `<div>
+                     14:15 · The New Yorker
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a449c62616d303870dbf870a5689358f.setIcon(div_icon_24da662d04ca095e24ee5b09670ce1d3);
+            
+    
+            var marker_aebf71029374e0a0639d6adda288566e = L.marker(
+                [40.7334, -74.003],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_b1f0df6c02f0e1fee4327fe83ff03eeb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e3\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_957fffb29a4a4cde637b06f6a076e048 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_2b3b5b0492b5bd60138ff99bf26ee13e = $(`<div id="html_2b3b5b0492b5bd60138ff99bf26ee13e" style="width: 100.0%; height: 100.0%;"><b>3. 14:45 — Salt Hank</b><br>Almuerzo<br><small>🚇 Taxi/subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7334,-74.003'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_957fffb29a4a4cde637b06f6a076e048.setContent(html_2b3b5b0492b5bd60138ff99bf26ee13e);
+            
+        
+
+        marker_aebf71029374e0a0639d6adda288566e.bindPopup(popup_957fffb29a4a4cde637b06f6a076e048)
+        ;
+
+        
+    
+    
+            marker_aebf71029374e0a0639d6adda288566e.bindTooltip(
+                `<div>
+                     14:45 · Salt Hank
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aebf71029374e0a0639d6adda288566e.setIcon(div_icon_b1f0df6c02f0e1fee4327fe83ff03eeb);
+            
+    
+            var marker_69b6d8b258ebca25409bcbc0d345e118 = L.marker(
+                [40.7308, -73.9973],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_c6531ab2bbbf08ab4ec7ff7a08dfabe6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e4\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_30dbc7c5d16688fb3a1e75b828e81a01 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_fbf850208a7761561e4f920e4dbea5ba = $(`<div id="html_fbf850208a7761561e4f920e4dbea5ba" style="width: 100.0%; height: 100.0%;"><b>4. 15:45 — Washington Square Park</b><br>Greenwich Village + Bleecker St<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7308,-73.9973'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_30dbc7c5d16688fb3a1e75b828e81a01.setContent(html_fbf850208a7761561e4f920e4dbea5ba);
+            
+        
+
+        marker_69b6d8b258ebca25409bcbc0d345e118.bindPopup(popup_30dbc7c5d16688fb3a1e75b828e81a01)
+        ;
+
+        
+    
+    
+            marker_69b6d8b258ebca25409bcbc0d345e118.bindTooltip(
+                `<div>
+                     15:45 · Washington Square Park
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_69b6d8b258ebca25409bcbc0d345e118.setIcon(div_icon_c6531ab2bbbf08ab4ec7ff7a08dfabe6);
+            
+    
+            var marker_1032e3af3637544978db56b1e4671f51 = L.marker(
+                [40.7327, -74.0036],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_254e097d9f9ddf042cc3e4e25bf914c8 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e5\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_5a6374d18b7e7a892dd2d313e57a1543 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c9f468ddca719347a63cd6762b0c0a5e = $(`<div id="html_c9f468ddca719347a63cd6762b0c0a5e" style="width: 100.0%; height: 100.0%;"><b>5. 17:00 — John's of Bleecker Street</b><br>Cena temprana — pizza<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7327,-74.0036'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_5a6374d18b7e7a892dd2d313e57a1543.setContent(html_c9f468ddca719347a63cd6762b0c0a5e);
+            
+        
+
+        marker_1032e3af3637544978db56b1e4671f51.bindPopup(popup_5a6374d18b7e7a892dd2d313e57a1543)
+        ;
+
+        
+    
+    
+            marker_1032e3af3637544978db56b1e4671f51.bindTooltip(
+                `<div>
+                     17:00 · John's of Bleecker Street
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_1032e3af3637544978db56b1e4671f51.setIcon(div_icon_254e097d9f9ddf042cc3e4e25bf914c8);
+            
+    
+            var marker_da6840d4c6deb297ba4b358e1318492e = L.marker(
+                [40.753, -74.0024],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_0ee1ff3d3c4d90ab79b28555d52069ab = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e6\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_3b4bae214a23b8762e15064023bf6a5a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_4eb8a76c5f083c3108aae80109f9b838 = $(`<div id="html_4eb8a76c5f083c3108aae80109f9b838" style="width: 100.0%; height: 100.0%;"><b>6. 18:15 — The Vessel</b><br>Inicio del recorrido West Side<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.753,-74.0024'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_3b4bae214a23b8762e15064023bf6a5a.setContent(html_4eb8a76c5f083c3108aae80109f9b838);
+            
+        
+
+        marker_da6840d4c6deb297ba4b358e1318492e.bindPopup(popup_3b4bae214a23b8762e15064023bf6a5a)
+        ;
+
+        
+    
+    
+            marker_da6840d4c6deb297ba4b358e1318492e.bindTooltip(
+                `<div>
+                     18:15 · The Vessel
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_da6840d4c6deb297ba4b358e1318492e.setIcon(div_icon_0ee1ff3d3c4d90ab79b28555d52069ab);
+            
+    
+            var marker_6f08d687f05d86755d0bcab0a663df2d = L.marker(
+                [40.7478, -74.0048],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_80c7a3e59b93dbda50b2710816534d7f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e7\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_58ca34e5cf5dd51d2fa7db52d3b7a7f3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_a82f5dd2b6d97add273677767545fe2c = $(`<div id="html_a82f5dd2b6d97add273677767545fe2c" style="width: 100.0%; height: 100.0%;"><b>7. 18:30 — High Line</b><br>Caminar hacia el sur<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7478,-74.0048'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_58ca34e5cf5dd51d2fa7db52d3b7a7f3.setContent(html_a82f5dd2b6d97add273677767545fe2c);
+            
+        
+
+        marker_6f08d687f05d86755d0bcab0a663df2d.bindPopup(popup_58ca34e5cf5dd51d2fa7db52d3b7a7f3)
+        ;
+
+        
+    
+    
+            marker_6f08d687f05d86755d0bcab0a663df2d.bindTooltip(
+                `<div>
+                     18:30 · High Line
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6f08d687f05d86755d0bcab0a663df2d.setIcon(div_icon_80c7a3e59b93dbda50b2710816534d7f);
+            
+    
+            var marker_a4032b0a80871af53055decd4b5cfed7 = L.marker(
+                [40.742, -74.0061],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_5ca38425a2fbd2eda8bff2b6ae8ad481 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e8\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_dc6575b65759b618fc6c4d12024d8fe2 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_f9ceff4d83172e1f0ff4ea16611e4b6f = $(`<div id="html_f9ceff4d83172e1f0ff4ea16611e4b6f" style="width: 100.0%; height: 100.0%;"><b>8. 19:30 — Chelsea Market</b><br>Paseo / snack opcional<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.742,-74.0061'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_dc6575b65759b618fc6c4d12024d8fe2.setContent(html_f9ceff4d83172e1f0ff4ea16611e4b6f);
+            
+        
+
+        marker_a4032b0a80871af53055decd4b5cfed7.bindPopup(popup_dc6575b65759b618fc6c4d12024d8fe2)
+        ;
+
+        
+    
+    
+            marker_a4032b0a80871af53055decd4b5cfed7.bindTooltip(
+                `<div>
+                     19:30 · Chelsea Market
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a4032b0a80871af53055decd4b5cfed7.setIcon(div_icon_5ca38425a2fbd2eda8bff2b6ae8ad481);
+            
+    
+            var marker_630892c21a3670839c0a1b6163f3d7aa = L.marker(
+                [40.742, -74.011],
+                {
+}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            var div_icon_801826fc1e771be43af9da4cd4453c88 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#2563eb;background:white;border:2px solid #2563eb;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e9\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_2b3115abf854d28252271ce3cc263eba = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_71954a3acbbed99f650b8e430575e5cc = $(`<div id="html_71954a3acbbed99f650b8e430575e5cc" style="width: 100.0%; height: 100.0%;"><b>9. 20:15 — Little Island</b><br>Waterfront + atardecer<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.742,-74.011'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_2b3115abf854d28252271ce3cc263eba.setContent(html_71954a3acbbed99f650b8e430575e5cc);
+            
+        
+
+        marker_630892c21a3670839c0a1b6163f3d7aa.bindPopup(popup_2b3115abf854d28252271ce3cc263eba)
+        ;
+
+        
+    
+    
+            marker_630892c21a3670839c0a1b6163f3d7aa.bindTooltip(
+                `<div>
+                     20:15 · Little Island
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_630892c21a3670839c0a1b6163f3d7aa.setIcon(div_icon_801826fc1e771be43af9da4cd4453c88);
+            
+    
+            var poly_line_aa9a68deb43393b6cfc54ac9355ff09a = L.polyline(
+                [[40.7487, -73.989], [40.7527, -73.9934], [40.7334, -74.003], [40.7308, -73.9973], [40.7327, -74.0036], [40.753, -74.0024], [40.7478, -74.0048], [40.742, -74.0061], [40.742, -74.011]],
+                {"bubblingMouseEvents": true, "color": "#2563eb", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#2563eb", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.78, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_8cf78001c106b31b7faa7eaad18ba3c1);
+        
+    
+            feature_group_8cf78001c106b31b7faa7eaad18ba3c1.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_54d58fe5b371ee73ab8fc4c85e6feba7 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_7f26276915ac775920393be1fd965dd1 = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_ba8c113f0d1006b68b780791329db1a6 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_1011e89831e97310c5353ae90dc514b0 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c15f730444edabf3a5f4df4e48e5a68c = $(`<div id="html_c15f730444edabf3a5f4df4e48e5a68c" style="width: 100.0%; height: 100.0%;"><b>1. 08:15 — Hotel Stanford</b><br>Salida<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_1011e89831e97310c5353ae90dc514b0.setContent(html_c15f730444edabf3a5f4df4e48e5a68c);
+            
+        
+
+        marker_7f26276915ac775920393be1fd965dd1.bindPopup(popup_1011e89831e97310c5353ae90dc514b0)
+        ;
+
+        
+    
+    
+            marker_7f26276915ac775920393be1fd965dd1.bindTooltip(
+                `<div>
+                     08:15 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7f26276915ac775920393be1fd965dd1.setIcon(div_icon_ba8c113f0d1006b68b780791329db1a6);
+            
+    
+            var marker_a984d29f458eb0f3b9ba5f839cca57bf = L.marker(
+                [40.7813, -73.9737],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_29ac8deec37434ca6ef1a0e8a5b224d2 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e2\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_b63ccc7565396b30c411ffbae757f2c5 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_2c4a5909d68b81c6973a52f56b181019 = $(`<div id="html_2c4a5909d68b81c6973a52f56b181019" style="width: 100.0%; height: 100.0%;"><b>2. 10:00 — AMNH</b><br>CityPASS — American Museum of Natural History<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7813,-73.9737'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_b63ccc7565396b30c411ffbae757f2c5.setContent(html_2c4a5909d68b81c6973a52f56b181019);
+            
+        
+
+        marker_a984d29f458eb0f3b9ba5f839cca57bf.bindPopup(popup_b63ccc7565396b30c411ffbae757f2c5)
+        ;
+
+        
+    
+    
+            marker_a984d29f458eb0f3b9ba5f839cca57bf.bindTooltip(
+                `<div>
+                     10:00 · AMNH
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a984d29f458eb0f3b9ba5f839cca57bf.setIcon(div_icon_29ac8deec37434ca6ef1a0e8a5b224d2);
+            
+    
+            var marker_7edd25c92ff90927bcda905defb6a46b = L.marker(
+                [40.757, -73.9897],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_a27eb855461dd57ed633b7bee910aa1e = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e3\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_02a40da6c1184a57ccea1b6fe1072682 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_f09bbcecfd8c2b2f9a2b451b7c0f1aad = $(`<div id="html_f09bbcecfd8c2b2f9a2b451b7c0f1aad" style="width: 100.0%; height: 100.0%;"><b>3. 12:45 — Los Tacos No. 1</b><br>Almuerzo rápido<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.757,-73.9897'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_02a40da6c1184a57ccea1b6fe1072682.setContent(html_f09bbcecfd8c2b2f9a2b451b7c0f1aad);
+            
+        
+
+        marker_7edd25c92ff90927bcda905defb6a46b.bindPopup(popup_02a40da6c1184a57ccea1b6fe1072682)
+        ;
+
+        
+    
+    
+            marker_7edd25c92ff90927bcda905defb6a46b.bindTooltip(
+                `<div>
+                     12:45 · Los Tacos No. 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7edd25c92ff90927bcda905defb6a46b.setIcon(div_icon_a27eb855461dd57ed633b7bee910aa1e);
+            
+    
+            var marker_cd6c5c1380560f0edb87bc5feb33c8ad = L.marker(
+                [40.7675, -73.9952],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_f514e9b1b75dee74f7c61520599c73c5 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e4\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_bad0d2fee7e0ecfb11d3e478f28f5f1f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_e7971327150c00692f20dd7069b6cc85 = $(`<div id="html_e7971327150c00692f20dd7069b6cc85" style="width: 100.0%; height: 100.0%;"><b>4. 14:15 — Pier 83 / Circle Line</b><br>Llegar con ~45 min de margen<br><small>🚇 Subway + a pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7675,-73.9952'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_bad0d2fee7e0ecfb11d3e478f28f5f1f.setContent(html_e7971327150c00692f20dd7069b6cc85);
+            
+        
+
+        marker_cd6c5c1380560f0edb87bc5feb33c8ad.bindPopup(popup_bad0d2fee7e0ecfb11d3e478f28f5f1f)
+        ;
+
+        
+    
+    
+            marker_cd6c5c1380560f0edb87bc5feb33c8ad.bindTooltip(
+                `<div>
+                     14:15 · Pier 83 / Circle Line
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_cd6c5c1380560f0edb87bc5feb33c8ad.setIcon(div_icon_f514e9b1b75dee74f7c61520599c73c5);
+            
+    
+            var marker_8193f2b9e75030b13b4ca928eb4ef4d0 = L.marker(
+                [40.7675, -73.9952],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_b100cefa84846c5134738a9dd5b2bc76 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e5\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_a3d2c4235ba9783013daf36f5e04e092 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_79b77631edb3b6e31a42e751ca9b6a4f = $(`<div id="html_79b77631edb3b6e31a42e751ca9b6a4f" style="width: 100.0%; height: 100.0%;"><b>5. 15:00 — Pier 83 / Circle Line</b><br>CityPASS — Landmarks Cruise<br><small>🚇 Circle Line</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7675,-73.9952'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_a3d2c4235ba9783013daf36f5e04e092.setContent(html_79b77631edb3b6e31a42e751ca9b6a4f);
+            
+        
+
+        marker_8193f2b9e75030b13b4ca928eb4ef4d0.bindPopup(popup_a3d2c4235ba9783013daf36f5e04e092)
+        ;
+
+        
+    
+    
+            marker_8193f2b9e75030b13b4ca928eb4ef4d0.bindTooltip(
+                `<div>
+                     15:00 · Pier 83 / Circle Line
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8193f2b9e75030b13b4ca928eb4ef4d0.setIcon(div_icon_b100cefa84846c5134738a9dd5b2bc76);
+            
+    
+            var marker_6154ea268812335c088d71a3392f261e = L.marker(
+                [40.759, -73.979],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_25b99bd6df2c766ecbb5ef18b3a56c38 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e6\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_926d66573b6c68430e62fe9a87b0bb0a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6565a60d7ca173a51282896e3fc2673f = $(`<div id="html_6565a60d7ca173a51282896e3fc2673f" style="width: 100.0%; height: 100.0%;"><b>6. 17:45 — Top of the Rock</b><br>CityPASS — reservar cerca del sunset<br><small>🚇 Subway + a pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.759,-73.979'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_926d66573b6c68430e62fe9a87b0bb0a.setContent(html_6565a60d7ca173a51282896e3fc2673f);
+            
+        
+
+        marker_6154ea268812335c088d71a3392f261e.bindPopup(popup_926d66573b6c68430e62fe9a87b0bb0a)
+        ;
+
+        
+    
+    
+            marker_6154ea268812335c088d71a3392f261e.bindTooltip(
+                `<div>
+                     17:45 · Top of the Rock
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6154ea268812335c088d71a3392f261e.setIcon(div_icon_25b99bd6df2c766ecbb5ef18b3a56c38);
+            
+    
+            var marker_15d490c44532117e4f17983c6ee038df = L.marker(
+                [40.7532, -74.0019],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_1c15aedb2557133111788c45eb5a21b1 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e7\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_5255a634e2d57cd8c623996f0e0413c4 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d2b5f97f8ac36da62c315bff5623a3d5 = $(`<div id="html_d2b5f97f8ac36da62c315bff5623a3d5" style="width: 100.0%; height: 100.0%;"><b>7. 19:30 — Peak</b><br>Solo cocktail + vista; no cena<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7532,-74.0019'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_5255a634e2d57cd8c623996f0e0413c4.setContent(html_d2b5f97f8ac36da62c315bff5623a3d5);
+            
+        
+
+        marker_15d490c44532117e4f17983c6ee038df.bindPopup(popup_5255a634e2d57cd8c623996f0e0413c4)
+        ;
+
+        
+    
+    
+            marker_15d490c44532117e4f17983c6ee038df.bindTooltip(
+                `<div>
+                     19:30 · Peak
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_15d490c44532117e4f17983c6ee038df.setIcon(div_icon_1c15aedb2557133111788c45eb5a21b1);
+            
+    
+            var marker_78e3a0e519e12c0589afc201ba8043ac = L.marker(
+                [40.7308, -74.0022],
+                {
+}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            var div_icon_0f7c9cc39ffba5b2910ad6ec0bd864ab = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#16a34a;background:white;border:2px solid #16a34a;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e8\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_2dd1309695ffc9aa4d1268c2714448c9 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_7b73d9f55ec2972d59e333e0057bf04d = $(`<div id="html_7b73d9f55ec2972d59e333e0057bf04d" style="width: 100.0%; height: 100.0%;"><b>8. 20:45 — Minetta Tavern</b><br>Cena principal<br><small>🚇 Subway/taxi</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7308,-74.0022'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_2dd1309695ffc9aa4d1268c2714448c9.setContent(html_7b73d9f55ec2972d59e333e0057bf04d);
+            
+        
+
+        marker_78e3a0e519e12c0589afc201ba8043ac.bindPopup(popup_2dd1309695ffc9aa4d1268c2714448c9)
+        ;
+
+        
+    
+    
+            marker_78e3a0e519e12c0589afc201ba8043ac.bindTooltip(
+                `<div>
+                     20:45 · Minetta Tavern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_78e3a0e519e12c0589afc201ba8043ac.setIcon(div_icon_0f7c9cc39ffba5b2910ad6ec0bd864ab);
+            
+    
+            var poly_line_2125108b1e164c8e1f20ce2e71c37903 = L.polyline(
+                [[40.7487, -73.989], [40.7813, -73.9737], [40.757, -73.9897], [40.7675, -73.9952], [40.7675, -73.9952], [40.759, -73.979], [40.7532, -74.0019], [40.7308, -74.0022]],
+                {"bubblingMouseEvents": true, "color": "#16a34a", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#16a34a", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.78, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_54d58fe5b371ee73ab8fc4c85e6feba7);
+        
+    
+            feature_group_54d58fe5b371ee73ab8fc4c85e6feba7.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_67a71d44f7454acef6b2153bc53e031b = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_9de7341c760c3c183bed01ec22e0323b = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_789d1d44c0c3f3291bf80f3ea5b69b58 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_58eecd43e2b28e3af22197b69712ae0a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_4a58a953388d0eebb38d0fa1385bb2f1 = $(`<div id="html_4a58a953388d0eebb38d0fa1385bb2f1" style="width: 100.0%; height: 100.0%;"><b>1. 08:30 — Hotel Stanford</b><br>Salida<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_58eecd43e2b28e3af22197b69712ae0a.setContent(html_4a58a953388d0eebb38d0fa1385bb2f1);
+            
+        
+
+        marker_9de7341c760c3c183bed01ec22e0323b.bindPopup(popup_58eecd43e2b28e3af22197b69712ae0a)
+        ;
+
+        
+    
+    
+            marker_9de7341c760c3c183bed01ec22e0323b.bindTooltip(
+                `<div>
+                     08:30 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9de7341c760c3c183bed01ec22e0323b.setIcon(div_icon_789d1d44c0c3f3291bf80f3ea5b69b58);
+            
+    
+            var marker_bc506129f811dc0cd5b262b48e8ce863 = L.marker(
+                [40.7484, -73.9857],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_576c334e1fef0848829f701c03e30a37 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e2\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_d8398c10f83f18c4dc2eb386c227651e = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_36acfd17e57c9849cdc1577e75f7d0b5 = $(`<div id="html_36acfd17e57c9849cdc1577e75f7d0b5" style="width: 100.0%; height: 100.0%;"><b>2. 09:00 — Empire State Building</b><br>CityPASS — AM/PM Experience<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7484,-73.9857'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_d8398c10f83f18c4dc2eb386c227651e.setContent(html_36acfd17e57c9849cdc1577e75f7d0b5);
+            
+        
+
+        marker_bc506129f811dc0cd5b262b48e8ce863.bindPopup(popup_d8398c10f83f18c4dc2eb386c227651e)
+        ;
+
+        
+    
+    
+            marker_bc506129f811dc0cd5b262b48e8ce863.bindTooltip(
+                `<div>
+                     09:00 · Empire State Building
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bc506129f811dc0cd5b262b48e8ce863.setIcon(div_icon_576c334e1fef0848829f701c03e30a37);
+            
+    
+            var marker_2a37019ed6122ab7eff4127f9596d49e = L.marker(
+                [40.718, -73.9937],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_9c8f8d9ce559cfd2ff152a281d5745ab = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e3\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_638c93a9ac8e25f37838fe2752726d1f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_e15c01c3a380bad131b30ae142d88b59 = $(`<div id="html_e15c01c3a380bad131b30ae142d88b59" style="width: 100.0%; height: 100.0%;"><b>3. 10:45 — Silence Please</b><br>Café<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.718,-73.9937'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_638c93a9ac8e25f37838fe2752726d1f.setContent(html_e15c01c3a380bad131b30ae142d88b59);
+            
+        
+
+        marker_2a37019ed6122ab7eff4127f9596d49e.bindPopup(popup_638c93a9ac8e25f37838fe2752726d1f)
+        ;
+
+        
+    
+    
+            marker_2a37019ed6122ab7eff4127f9596d49e.bindTooltip(
+                `<div>
+                     10:45 · Silence Please
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_2a37019ed6122ab7eff4127f9596d49e.setIcon(div_icon_9c8f8d9ce559cfd2ff152a281d5745ab);
+            
+    
+            var marker_4389372b77e9a51ffbe0c8af47ed3f06 = L.marker(
+                [40.7147, -73.997],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_95d2e3ba2c0828895d564da4591f8244 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e4\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_f9b270df756c18eb9169ec65260520fb = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_883e49e29f1b2f18b0c35104a08a7f4b = $(`<div id="html_883e49e29f1b2f18b0c35104a08a7f4b" style="width: 100.0%; height: 100.0%;"><b>4. 11:15 — Doyers Street</b><br>Chinatown — paseo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7147,-73.997'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_f9b270df756c18eb9169ec65260520fb.setContent(html_883e49e29f1b2f18b0c35104a08a7f4b);
+            
+        
+
+        marker_4389372b77e9a51ffbe0c8af47ed3f06.bindPopup(popup_f9b270df756c18eb9169ec65260520fb)
+        ;
+
+        
+    
+    
+            marker_4389372b77e9a51ffbe0c8af47ed3f06.bindTooltip(
+                `<div>
+                     11:15 · Doyers Street
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4389372b77e9a51ffbe0c8af47ed3f06.setIcon(div_icon_95d2e3ba2c0828895d564da4591f8244);
+            
+    
+            var marker_9b5f2aca15fc4e7f4d32372c0bc41baa = L.marker(
+                [40.7152, -73.9971],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_1174d0fc32fd79466ddabf3596631073 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e5\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_fed7a0e16d2aa8158ff894e2450406f1 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_c3b431aeadac480d04055d491183c9f6 = $(`<div id="html_c3b431aeadac480d04055d491183c9f6" style="width: 100.0%; height: 100.0%;"><b>5. 11:45 — Wo Hop</b><br>Comida china opcional<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7152,-73.9971'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_fed7a0e16d2aa8158ff894e2450406f1.setContent(html_c3b431aeadac480d04055d491183c9f6);
+            
+        
+
+        marker_9b5f2aca15fc4e7f4d32372c0bc41baa.bindPopup(popup_fed7a0e16d2aa8158ff894e2450406f1)
+        ;
+
+        
+    
+    
+            marker_9b5f2aca15fc4e7f4d32372c0bc41baa.bindTooltip(
+                `<div>
+                     11:45 · Wo Hop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b5f2aca15fc4e7f4d32372c0bc41baa.setIcon(div_icon_1174d0fc32fd79466ddabf3596631073);
+            
+    
+            var marker_8e9d9a6f741e32bf546a58be93e9e932 = L.marker(
+                [40.7223, -73.9875],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_3c69e73e664583d30b5c72b162c46b4f = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e6\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_63bf0adacb0f1c6d273e7dca9f208c7a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_5776470e3416b1843e944671f83afd5d = $(`<div id="html_5776470e3416b1843e944671f83afd5d" style="width: 100.0%; height: 100.0%;"><b>6. 12:30 — Katz's Delicatessen</b><br>MUST — pastrami<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7223,-73.9875'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_63bf0adacb0f1c6d273e7dca9f208c7a.setContent(html_5776470e3416b1843e944671f83afd5d);
+            
+        
+
+        marker_8e9d9a6f741e32bf546a58be93e9e932.bindPopup(popup_63bf0adacb0f1c6d273e7dca9f208c7a)
+        ;
+
+        
+    
+    
+            marker_8e9d9a6f741e32bf546a58be93e9e932.bindTooltip(
+                `<div>
+                     12:30 · Katz's Delicatessen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8e9d9a6f741e32bf546a58be93e9e932.setIcon(div_icon_3c69e73e664583d30b5c72b162c46b4f);
+            
+    
+            var marker_b7aed61f7b1f686826f7d6b0c85306a9 = L.marker(
+                [40.7195, -73.996],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_d5fc3dc9abca0e5c12c710b2b6f3aa65 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e7\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ece492ab4deda60588faba2b073e0a27 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_58faaae34e622710b7dda0df9d0c1329 = $(`<div id="html_58faaae34e622710b7dda0df9d0c1329" style="width: 100.0%; height: 100.0%;"><b>7. 13:30 — Ceres</b><br>Pizza / snack<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7195,-73.996'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_ece492ab4deda60588faba2b073e0a27.setContent(html_58faaae34e622710b7dda0df9d0c1329);
+            
+        
+
+        marker_b7aed61f7b1f686826f7d6b0c85306a9.bindPopup(popup_ece492ab4deda60588faba2b073e0a27)
+        ;
+
+        
+    
+    
+            marker_b7aed61f7b1f686826f7d6b0c85306a9.bindTooltip(
+                `<div>
+                     13:30 · Ceres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_b7aed61f7b1f686826f7d6b0c85306a9.setIcon(div_icon_d5fc3dc9abca0e5c12c710b2b6f3aa65);
+            
+    
+            var marker_6efca8c236e945612c6a0caab3168fc7 = L.marker(
+                [40.7233, -74.0],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_59065cf3bfe9241a82360f0520e19087 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e8\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_887a7bbd8b3130ee200ffc7e2649eed7 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d18bc0d3cf7c641dba1753714caa47f4 = $(`<div id="html_d18bc0d3cf7c641dba1753714caa47f4" style="width: 100.0%; height: 100.0%;"><b>8. 14:00 — SoHo</b><br>Nolita / SoHo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7233,-74.0'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_887a7bbd8b3130ee200ffc7e2649eed7.setContent(html_d18bc0d3cf7c641dba1753714caa47f4);
+            
+        
+
+        marker_6efca8c236e945612c6a0caab3168fc7.bindPopup(popup_887a7bbd8b3130ee200ffc7e2649eed7)
+        ;
+
+        
+    
+    
+            marker_6efca8c236e945612c6a0caab3168fc7.bindTooltip(
+                `<div>
+                     14:00 · SoHo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_6efca8c236e945612c6a0caab3168fc7.setIcon(div_icon_59065cf3bfe9241a82360f0520e19087);
+            
+    
+            var marker_7fe3e7c60b6d7d5174105438ccbd6cd8 = L.marker(
+                [40.7033, -73.9885],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_5ef57d20e345d0515e7028e559e386f0 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e9\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_710cc5877f8597786553dadde125f14f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_ed659497900932f71195954185022dc7 = $(`<div id="html_ed659497900932f71195954185022dc7" style="width: 100.0%; height: 100.0%;"><b>9. 15:30 — DUMBO</b><br>Washington St + Brooklyn Bridge Park<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7033,-73.9885'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_710cc5877f8597786553dadde125f14f.setContent(html_ed659497900932f71195954185022dc7);
+            
+        
+
+        marker_7fe3e7c60b6d7d5174105438ccbd6cd8.bindPopup(popup_710cc5877f8597786553dadde125f14f)
+        ;
+
+        
+    
+    
+            marker_7fe3e7c60b6d7d5174105438ccbd6cd8.bindTooltip(
+                `<div>
+                     15:30 · DUMBO
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7fe3e7c60b6d7d5174105438ccbd6cd8.setIcon(div_icon_5ef57d20e345d0515e7028e559e386f0);
+            
+    
+            var marker_bb67c0d02a5fafa0e3a52d3706feef6d = L.marker(
+                [40.7527, -73.9934],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_25c606d0a1f873bee8b776e0ce26bdea = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e10\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_b8aee9bd0ed6fdf2f6b1cfc2955228b9 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_bdf60027f279bc55552d50787948cb1b = $(`<div id="html_bdf60027f279bc55552d50787948cb1b" style="width: 100.0%; height: 100.0%;"><b>10. 17:00 — The New Yorker</b><br>Descanso / recoger lo necesario<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7527,-73.9934'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_b8aee9bd0ed6fdf2f6b1cfc2955228b9.setContent(html_bdf60027f279bc55552d50787948cb1b);
+            
+        
+
+        marker_bb67c0d02a5fafa0e3a52d3706feef6d.bindPopup(popup_b8aee9bd0ed6fdf2f6b1cfc2955228b9)
+        ;
+
+        
+    
+    
+            marker_bb67c0d02a5fafa0e3a52d3706feef6d.bindTooltip(
+                `<div>
+                     17:00 · The New Yorker
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_bb67c0d02a5fafa0e3a52d3706feef6d.setIcon(div_icon_25c606d0a1f873bee8b776e0ce26bdea);
+            
+    
+            var marker_0e4a5e1206f4fc1bc183b2131264d67c = L.marker(
+                [40.7546, -73.8456],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_64e4fc96e822775bb2f4f99e9f7ac168 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e11\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_f85de6e869d90042f3c0416fd04a0ac7 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_b6ac8ef28ecaa8e7b1c6a1346b20f504 = $(`<div id="html_b6ac8ef28ecaa8e7b1c6a1346b20f504" style="width: 100.0%; height: 100.0%;"><b>11. 18:30 — US Open / Mets-Willets Point</b><br>Traslado al US Open<br><small>🚇 Subway 7</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7546,-73.8456'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_f85de6e869d90042f3c0416fd04a0ac7.setContent(html_b6ac8ef28ecaa8e7b1c6a1346b20f504);
+            
+        
+
+        marker_0e4a5e1206f4fc1bc183b2131264d67c.bindPopup(popup_f85de6e869d90042f3c0416fd04a0ac7)
+        ;
+
+        
+    
+    
+            marker_0e4a5e1206f4fc1bc183b2131264d67c.bindTooltip(
+                `<div>
+                     18:30 · US Open / Mets-Willets Point
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0e4a5e1206f4fc1bc183b2131264d67c.setIcon(div_icon_64e4fc96e822775bb2f4f99e9f7ac168);
+            
+    
+            var marker_fad8cfca08729778d2bbfc2ba5eea6eb = L.marker(
+                [40.7508, -73.847],
+                {
+}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            var div_icon_c261a3e98d06980a2abc33217ae516c7 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#f97316;background:white;border:2px solid #f97316;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e12\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_6fe1aa24d86be8c00d23e8fed5f7df5f = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_a6027d04da9dbb12dc251a3d55fa333c = $(`<div id="html_a6027d04da9dbb12dc251a3d55fa333c" style="width: 100.0%; height: 100.0%;"><b>12. 19:00 — Arthur Ashe Stadium</b><br>US Open — fijo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7508,-73.847'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_6fe1aa24d86be8c00d23e8fed5f7df5f.setContent(html_a6027d04da9dbb12dc251a3d55fa333c);
+            
+        
+
+        marker_fad8cfca08729778d2bbfc2ba5eea6eb.bindPopup(popup_6fe1aa24d86be8c00d23e8fed5f7df5f)
+        ;
+
+        
+    
+    
+            marker_fad8cfca08729778d2bbfc2ba5eea6eb.bindTooltip(
+                `<div>
+                     19:00 · Arthur Ashe Stadium
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fad8cfca08729778d2bbfc2ba5eea6eb.setIcon(div_icon_c261a3e98d06980a2abc33217ae516c7);
+            
+    
+            var poly_line_f220cce2935b091c66390f938af44b7b = L.polyline(
+                [[40.7487, -73.989], [40.7484, -73.9857], [40.718, -73.9937], [40.7147, -73.997], [40.7152, -73.9971], [40.7223, -73.9875], [40.7195, -73.996], [40.7233, -74.0], [40.7033, -73.9885], [40.7527, -73.9934], [40.7546, -73.8456], [40.7508, -73.847]],
+                {"bubblingMouseEvents": true, "color": "#f97316", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#f97316", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.78, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_67a71d44f7454acef6b2153bc53e031b);
+        
+    
+            feature_group_67a71d44f7454acef6b2153bc53e031b.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_8db8eced4b0d9acb8da3bcde341ce662 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_4c7e3d2fd1a6c8d4e2a6d306f196e2fe = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_a35f607ffd23e9ab3d0aebdf48037182 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_96cbe005fa4e136490ad97706197f103 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_fde2dfde68b7fc2dd5ca45e4d79ce1f1 = $(`<div id="html_fde2dfde68b7fc2dd5ca45e4d79ce1f1" style="width: 100.0%; height: 100.0%;"><b>1. 07:15 — Hotel Stanford</b><br>Salida temprana<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_96cbe005fa4e136490ad97706197f103.setContent(html_fde2dfde68b7fc2dd5ca45e4d79ce1f1);
+            
+        
+
+        marker_4c7e3d2fd1a6c8d4e2a6d306f196e2fe.bindPopup(popup_96cbe005fa4e136490ad97706197f103)
+        ;
+
+        
+    
+    
+            marker_4c7e3d2fd1a6c8d4e2a6d306f196e2fe.bindTooltip(
+                `<div>
+                     07:15 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_4c7e3d2fd1a6c8d4e2a6d306f196e2fe.setIcon(div_icon_a35f607ffd23e9ab3d0aebdf48037182);
+            
+    
+            var marker_3b8dedc195af583597c065e1fe5b3074 = L.marker(
+                [40.7033, -74.017],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_0e2d2d9a9ffabb75a4e30fca9d1b252c = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e2\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_dce91ba3dedbc2eac592d8d003876d98 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_4d92d0fa6a46587012caa868bfdf283e = $(`<div id="html_4d92d0fa6a46587012caa868bfdf283e" style="width: 100.0%; height: 100.0%;"><b>2. 08:15 — Statue of Liberty / Battery Park</b><br>CityPASS — llegada con margen<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7033,-74.017'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_dce91ba3dedbc2eac592d8d003876d98.setContent(html_4d92d0fa6a46587012caa868bfdf283e);
+            
+        
+
+        marker_3b8dedc195af583597c065e1fe5b3074.bindPopup(popup_dce91ba3dedbc2eac592d8d003876d98)
+        ;
+
+        
+    
+    
+            marker_3b8dedc195af583597c065e1fe5b3074.bindTooltip(
+                `<div>
+                     08:15 · Statue of Liberty / Battery Park
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_3b8dedc195af583597c065e1fe5b3074.setIcon(div_icon_0e2d2d9a9ffabb75a4e30fca9d1b252c);
+            
+    
+            var marker_d158b98d64db3f5ae0ca56bf5d08fb15 = L.marker(
+                [40.6892, -74.0445],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_c8074f02fa8fecf9c6f038270539a3ee = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e3\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_6008fea68ea1969bee42e9372cd51a5a = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_d330c8866feff8924988798f468e9ada = $(`<div id="html_d330c8866feff8924988798f468e9ada" style="width: 100.0%; height: 100.0%;"><b>3. 09:00 — Liberty Island</b><br>Statue of Liberty<br><small>🚇 Ferry</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.6892,-74.0445'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_6008fea68ea1969bee42e9372cd51a5a.setContent(html_d330c8866feff8924988798f468e9ada);
+            
+        
+
+        marker_d158b98d64db3f5ae0ca56bf5d08fb15.bindPopup(popup_6008fea68ea1969bee42e9372cd51a5a)
+        ;
+
+        
+    
+    
+            marker_d158b98d64db3f5ae0ca56bf5d08fb15.bindTooltip(
+                `<div>
+                     09:00 · Liberty Island
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_d158b98d64db3f5ae0ca56bf5d08fb15.setIcon(div_icon_c8074f02fa8fecf9c6f038270539a3ee);
+            
+    
+            var marker_622df7fbfebc8d751cea5f27ccd0e526 = L.marker(
+                [40.6995, -74.0396],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_dab6d6f93dc43cd63f01d5c992fff9c4 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e4\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_3883aa098ff06fac14a7966b1fbe4b72 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_4be4e7a0307c6dd279e06e2f53a2fc7f = $(`<div id="html_4be4e7a0307c6dd279e06e2f53a2fc7f" style="width: 100.0%; height: 100.0%;"><b>4. 10:45 — Ellis Island</b><br>Ellis Island<br><small>🚇 Ferry</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.6995,-74.0396'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_3883aa098ff06fac14a7966b1fbe4b72.setContent(html_4be4e7a0307c6dd279e06e2f53a2fc7f);
+            
+        
+
+        marker_622df7fbfebc8d751cea5f27ccd0e526.bindPopup(popup_3883aa098ff06fac14a7966b1fbe4b72)
+        ;
+
+        
+    
+    
+            marker_622df7fbfebc8d751cea5f27ccd0e526.bindTooltip(
+                `<div>
+                     10:45 · Ellis Island
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_622df7fbfebc8d751cea5f27ccd0e526.setIcon(div_icon_dab6d6f93dc43cd63f01d5c992fff9c4);
+            
+    
+            var marker_102c520acd76a686013914b0a54681bc = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_1979c1b835136a48d582e4c5b1207809 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e5\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_938aac729b8e0651152c6613779ad89c = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_b9b4257d1d4c248223a0dd94db66a6e1 = $(`<div id="html_b9b4257d1d4c248223a0dd94db66a6e1" style="width: 100.0%; height: 100.0%;"><b>5. 12:30 — Hotel Stanford</b><br>Regreso / descanso corto<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_938aac729b8e0651152c6613779ad89c.setContent(html_b9b4257d1d4c248223a0dd94db66a6e1);
+            
+        
+
+        marker_102c520acd76a686013914b0a54681bc.bindPopup(popup_938aac729b8e0651152c6613779ad89c)
+        ;
+
+        
+    
+    
+            marker_102c520acd76a686013914b0a54681bc.bindTooltip(
+                `<div>
+                     12:30 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_102c520acd76a686013914b0a54681bc.setIcon(div_icon_1979c1b835136a48d582e4c5b1207809);
+            
+    
+            var marker_babde1b5c6b87673ffc0bc61f28c8e25 = L.marker(
+                [40.774, -73.9705],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_6e31b9d016f2cd9100df75371974491a = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e6\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_d57f7128dfe60e009201a3a548ea966d = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_290e399a782ed19afa3452e11240f423 = $(`<div id="html_290e399a782ed19afa3452e11240f423" style="width: 100.0%; height: 100.0%;"><b>6. 13:30 — Central Park - Bethesda</b><br>Central Park — fijo<br><small>🚇 Subway + a pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.774,-73.9705'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_d57f7128dfe60e009201a3a548ea966d.setContent(html_290e399a782ed19afa3452e11240f423);
+            
+        
+
+        marker_babde1b5c6b87673ffc0bc61f28c8e25.bindPopup(popup_d57f7128dfe60e009201a3a548ea966d)
+        ;
+
+        
+    
+    
+            marker_babde1b5c6b87673ffc0bc61f28c8e25.bindTooltip(
+                `<div>
+                     13:30 · Central Park - Bethesda
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_babde1b5c6b87673ffc0bc61f28c8e25.setIcon(div_icon_6e31b9d016f2cd9100df75371974491a);
+            
+    
+            var marker_f4c1cf596a4cff93b47c2740b2c63dc8 = L.marker(
+                [40.7754, -73.9717],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_5ebe8676cefb2866ac3fbdc1f5356ee9 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e7\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_40a4f264ae7897ab810266b79b23b7d3 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_6f4b71510fb9bec38a0c37d38ab91708 = $(`<div id="html_6f4b71510fb9bec38a0c37d38ab91708" style="width: 100.0%; height: 100.0%;"><b>7. 14:30 — Central Park - Bow Bridge</b><br>Paseo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7754,-73.9717'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_40a4f264ae7897ab810266b79b23b7d3.setContent(html_6f4b71510fb9bec38a0c37d38ab91708);
+            
+        
+
+        marker_f4c1cf596a4cff93b47c2740b2c63dc8.bindPopup(popup_40a4f264ae7897ab810266b79b23b7d3)
+        ;
+
+        
+    
+    
+            marker_f4c1cf596a4cff93b47c2740b2c63dc8.bindTooltip(
+                `<div>
+                     14:30 · Central Park - Bow Bridge
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f4c1cf596a4cff93b47c2740b2c63dc8.setIcon(div_icon_5ebe8676cefb2866ac3fbdc1f5356ee9);
+            
+    
+            var marker_9b17445f9d7ce9b0802ae857527a721f = L.marker(
+                [40.7755, -73.9768],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_42090feb65e0500ea25d293ad6ca8f49 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e8\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_ace6b29ab332eba3aab93b4cbf69c5dc = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_bb7693961b08f2e9684d3293c770ed00 = $(`<div id="html_bb7693961b08f2e9684d3293c770ed00" style="width: 100.0%; height: 100.0%;"><b>8. 15:15 — Strawberry Fields</b><br>Paseo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7755,-73.9768'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_ace6b29ab332eba3aab93b4cbf69c5dc.setContent(html_bb7693961b08f2e9684d3293c770ed00);
+            
+        
+
+        marker_9b17445f9d7ce9b0802ae857527a721f.bindPopup(popup_ace6b29ab332eba3aab93b4cbf69c5dc)
+        ;
+
+        
+    
+    
+            marker_9b17445f9d7ce9b0802ae857527a721f.bindTooltip(
+                `<div>
+                     15:15 · Strawberry Fields
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9b17445f9d7ce9b0802ae857527a721f.setIcon(div_icon_42090feb65e0500ea25d293ad6ca8f49);
+            
+    
+            var marker_32526003ef23e040a6750b8d3b0ea6fd = L.marker(
+                [40.728, -73.958],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_9c4e4597096b5a1a1873fc5096bd87bd = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e9\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_1585fea163addb2dfcd93af15fa61f28 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_1682a02c622d6d41e07ee2b1b5687e47 = $(`<div id="html_1682a02c622d6d41e07ee2b1b5687e47" style="width: 100.0%; height: 100.0%;"><b>9. 17:00 — Taqueria Ramirez</b><br>Tacos<br><small>🚇 Subway</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.728,-73.958'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_1585fea163addb2dfcd93af15fa61f28.setContent(html_1682a02c622d6d41e07ee2b1b5687e47);
+            
+        
+
+        marker_32526003ef23e040a6750b8d3b0ea6fd.bindPopup(popup_1585fea163addb2dfcd93af15fa61f28)
+        ;
+
+        
+    
+    
+            marker_32526003ef23e040a6750b8d3b0ea6fd.bindTooltip(
+                `<div>
+                     17:00 · Taqueria Ramirez
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_32526003ef23e040a6750b8d3b0ea6fd.setIcon(div_icon_9c4e4597096b5a1a1873fc5096bd87bd);
+            
+    
+            var marker_0b152077a0459a31a790d31448faec70 = L.marker(
+                [40.717, -73.9645],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_eccff0011cf2242b5109fea67fdb9993 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e10\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_6305f62f60585c2c5d7a6984aea49c87 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_b0be262a58fa1818d253d0d89b337eb0 = $(`<div id="html_b0be262a58fa1818d253d0d89b337eb0" style="width: 100.0%; height: 100.0%;"><b>10. 18:15 — Domino Park</b><br>Waterfront + skyline<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.717,-73.9645'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_6305f62f60585c2c5d7a6984aea49c87.setContent(html_b0be262a58fa1818d253d0d89b337eb0);
+            
+        
+
+        marker_0b152077a0459a31a790d31448faec70.bindPopup(popup_6305f62f60585c2c5d7a6984aea49c87)
+        ;
+
+        
+    
+    
+            marker_0b152077a0459a31a790d31448faec70.bindTooltip(
+                `<div>
+                     18:15 · Domino Park
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0b152077a0459a31a790d31448faec70.setIcon(div_icon_eccff0011cf2242b5109fea67fdb9993);
+            
+    
+            var marker_c62c0a3ee3fb2893c0309ec3580a5ba9 = L.marker(
+                [40.7225, -73.9575],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_b7d8f96f5ae103db3ad586626cededdb = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e11\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_1afec73bb8788528365091ebfe7a65ed = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_b1d8448335f572a56febbd5023ae7391 = $(`<div id="html_b1d8448335f572a56febbd5023ae7391" style="width: 100.0%; height: 100.0%;"><b>11. 19:30 — Westlight</b><br>Rooftop — drinks / cena ligera<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7225,-73.9575'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_1afec73bb8788528365091ebfe7a65ed.setContent(html_b1d8448335f572a56febbd5023ae7391);
+            
+        
+
+        marker_c62c0a3ee3fb2893c0309ec3580a5ba9.bindPopup(popup_1afec73bb8788528365091ebfe7a65ed)
+        ;
+
+        
+    
+    
+            marker_c62c0a3ee3fb2893c0309ec3580a5ba9.bindTooltip(
+                `<div>
+                     19:30 · Westlight
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_c62c0a3ee3fb2893c0309ec3580a5ba9.setIcon(div_icon_b7d8f96f5ae103db3ad586626cededdb);
+            
+    
+            var marker_74dafa45ef0ed7fbd711bae808e48953 = L.marker(
+                [40.7152, -73.9584],
+                {
+}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            var div_icon_a43e5248726c57287ba96b244ca07e92 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#9333ea;background:white;border:2px solid #9333ea;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e12\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_621a742f2a31bbf9864dd24bedabd1e6 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_1fe384e8694ce6b0f49d71d757fa44b5 = $(`<div id="html_1fe384e8694ce6b0f49d71d757fa44b5" style="width: 100.0%; height: 100.0%;"><b>12. 21:15 — Fini Pizza</b><br>Late snack opcional<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7152,-73.9584'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_621a742f2a31bbf9864dd24bedabd1e6.setContent(html_1fe384e8694ce6b0f49d71d757fa44b5);
+            
+        
+
+        marker_74dafa45ef0ed7fbd711bae808e48953.bindPopup(popup_621a742f2a31bbf9864dd24bedabd1e6)
+        ;
+
+        
+    
+    
+            marker_74dafa45ef0ed7fbd711bae808e48953.bindTooltip(
+                `<div>
+                     21:15 · Fini Pizza
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_74dafa45ef0ed7fbd711bae808e48953.setIcon(div_icon_a43e5248726c57287ba96b244ca07e92);
+            
+    
+            var poly_line_b4a41e84a2a1b13bcecd463eea69d0ec = L.polyline(
+                [[40.7487, -73.989], [40.7033, -74.017], [40.6892, -74.0445], [40.6995, -74.0396], [40.7487, -73.989], [40.774, -73.9705], [40.7754, -73.9717], [40.7755, -73.9768], [40.728, -73.958], [40.717, -73.9645], [40.7225, -73.9575], [40.7152, -73.9584]],
+                {"bubblingMouseEvents": true, "color": "#9333ea", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "#9333ea", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.78, "smoothFactor": 1.0, "stroke": true, "weight": 5}
+            ).addTo(feature_group_8db8eced4b0d9acb8da3bcde341ce662);
+        
+    
+            feature_group_8db8eced4b0d9acb8da3bcde341ce662.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_712a66d368ff02ec3b2ea763931be6a0 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_5bb8bb7a28f8375ccdee80214fd05ff2 = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_712a66d368ff02ec3b2ea763931be6a0);
+        
+    
+            var div_icon_f3ab667be396d79778c04b021f29baf4 = L.divIcon({
+  "html": "\u003cdiv style=\"font-size:11px;font-weight:700;color:#dc2626;background:white;border:2px solid #dc2626;border-radius:50%;width:24px;height:24px;text-align:center;line-height:20px\"\u003e1\u003c/div\u003e",
+  "className": "empty",
+});
+        
+    
+        var popup_4c48ab5f08946ae08f1bf34bfd1e3127 = L.popup({
+  "maxWidth": 340,
+});
+
+        
+            
+                var html_27d1fb7ff46edbcdf9c64f000e662d5e = $(`<div id="html_27d1fb7ff46edbcdf9c64f000e662d5e" style="width: 100.0%; height: 100.0%;"><b>1. 08:00 — Hotel Stanford</b><br>Desayuno + check-out; sin turismo<br><small>🚇 A pie</small><br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7487,-73.989'>📍 Navegar con Google Maps</a></div>`)[0];
+                popup_4c48ab5f08946ae08f1bf34bfd1e3127.setContent(html_27d1fb7ff46edbcdf9c64f000e662d5e);
+            
+        
+
+        marker_5bb8bb7a28f8375ccdee80214fd05ff2.bindPopup(popup_4c48ab5f08946ae08f1bf34bfd1e3127)
+        ;
+
+        
+    
+    
+            marker_5bb8bb7a28f8375ccdee80214fd05ff2.bindTooltip(
+                `<div>
+                     08:00 · Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_5bb8bb7a28f8375ccdee80214fd05ff2.setIcon(div_icon_f3ab667be396d79778c04b021f29baf4);
+            
+    
+            feature_group_712a66d368ff02ec3b2ea763931be6a0.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_4072a70ea8edc82fe7cc41f02cd6e18f = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_631c9177d5ed13493f4f4ba15a203567 = L.marker(
+                [40.7487, -73.989],
+                {
+}
+            ).addTo(feature_group_4072a70ea8edc82fe7cc41f02cd6e18f);
+        
+    
+            var icon_8eb838a3b047584dab5eec252ddb873c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_090f0812731e96e1ff191dc62794e2c9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0f61798e399ff4f8c91960e5a5e461be = $(`<div id="html_0f61798e399ff4f8c91960e5a5e461be" style="width: 100.0%; height: 100.0%;"><b>Hotel Stanford</b><br>Tu hotel</div>`)[0];
+                popup_090f0812731e96e1ff191dc62794e2c9.setContent(html_0f61798e399ff4f8c91960e5a5e461be);
+            
+        
+
+        marker_631c9177d5ed13493f4f4ba15a203567.bindPopup(popup_090f0812731e96e1ff191dc62794e2c9)
+        ;
+
+        
+    
+    
+            marker_631c9177d5ed13493f4f4ba15a203567.bindTooltip(
+                `<div>
+                     Hotel Stanford
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_631c9177d5ed13493f4f4ba15a203567.setIcon(icon_8eb838a3b047584dab5eec252ddb873c);
+            
+    
+            var marker_aaf0a82b744c8f341ac67093ea751010 = L.marker(
+                [40.7527, -73.9934],
+                {
+}
+            ).addTo(feature_group_4072a70ea8edc82fe7cc41f02cd6e18f);
+        
+    
+            var icon_5a9b64d4479e990cbd8ddcf4c2476e6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "black",
+  "iconColor": "white",
+  "icon": "home",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f66ececd5bb527f89fbad815bb69b9c1 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5b9622cb1a69f76c4eb289fab17f22b2 = $(`<div id="html_5b9622cb1a69f76c4eb289fab17f22b2" style="width: 100.0%; height: 100.0%;"><b>The New Yorker</b><br>Hotel de tu amigo</div>`)[0];
+                popup_f66ececd5bb527f89fbad815bb69b9c1.setContent(html_5b9622cb1a69f76c4eb289fab17f22b2);
+            
+        
+
+        marker_aaf0a82b744c8f341ac67093ea751010.bindPopup(popup_f66ececd5bb527f89fbad815bb69b9c1)
+        ;
+
+        
+    
+    
+            marker_aaf0a82b744c8f341ac67093ea751010.bindTooltip(
+                `<div>
+                     The New Yorker
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_aaf0a82b744c8f341ac67093ea751010.setIcon(icon_5a9b64d4479e990cbd8ddcf4c2476e6d);
+            
+    
+            feature_group_4072a70ea8edc82fe7cc41f02cd6e18f.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9 = L.featureGroup(
+                {
+}
+            );
+        
+    
+            var marker_968feb502d8e0bc85f41e1a7e00949d1 = L.marker(
+                [40.7334, -74.003],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_628c4f1c6ed819fa8b9d7d2317bb3d26 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ff51692d82e9c235340686a963cab744 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5822f144a2c0a2c2c4f70ed4d3141d45 = $(`<div id="html_5822f144a2c0a2c2c4f70ed4d3141d45" style="width: 100.0%; height: 100.0%;"><b>Salt Hank</b><br>Sandwich / deli<br>Miércoles — almuerzo<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7334,-74.003'>📍 Navegar</a></div>`)[0];
+                popup_ff51692d82e9c235340686a963cab744.setContent(html_5822f144a2c0a2c2c4f70ed4d3141d45);
+            
+        
+
+        marker_968feb502d8e0bc85f41e1a7e00949d1.bindPopup(popup_ff51692d82e9c235340686a963cab744)
+        ;
+
+        
+    
+    
+            marker_968feb502d8e0bc85f41e1a7e00949d1.bindTooltip(
+                `<div>
+                     Salt Hank
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_968feb502d8e0bc85f41e1a7e00949d1.setIcon(icon_628c4f1c6ed819fa8b9d7d2317bb3d26);
+            
+    
+            var marker_9678923a6e2d7aff44448aa3c1a833ff = L.marker(
+                [40.7327, -74.0036],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_676990d6e84416c639e32eceb473f44e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ad951e722e296f8c9b773605ef9b225e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_281a7a48d67876967a646f7852cc8e2e = $(`<div id="html_281a7a48d67876967a646f7852cc8e2e" style="width: 100.0%; height: 100.0%;"><b>John's of Bleecker Street</b><br>Pizza<br>Miércoles — cena<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7327,-74.0036'>📍 Navegar</a></div>`)[0];
+                popup_ad951e722e296f8c9b773605ef9b225e.setContent(html_281a7a48d67876967a646f7852cc8e2e);
+            
+        
+
+        marker_9678923a6e2d7aff44448aa3c1a833ff.bindPopup(popup_ad951e722e296f8c9b773605ef9b225e)
+        ;
+
+        
+    
+    
+            marker_9678923a6e2d7aff44448aa3c1a833ff.bindTooltip(
+                `<div>
+                     John's of Bleecker Street
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9678923a6e2d7aff44448aa3c1a833ff.setIcon(icon_676990d6e84416c639e32eceb473f44e);
+            
+    
+            var marker_f5ba9d78791679ae756ac860d59bc805 = L.marker(
+                [40.741, -74.0058],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_4bbf973153d0fd0ef92d1aab0183d235 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ed18fac7478708c44c40416ad36f3265 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f3c6f74b2adb2dc3713c417df253f365 = $(`<div id="html_f3c6f74b2adb2dc3713c417df253f365" style="width: 100.0%; height: 100.0%;"><b>Konban NYC</b><br>Japanese / izakaya<br>Alternativa de cena<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.741,-74.0058'>📍 Navegar</a></div>`)[0];
+                popup_ed18fac7478708c44c40416ad36f3265.setContent(html_f3c6f74b2adb2dc3713c417df253f365);
+            
+        
+
+        marker_f5ba9d78791679ae756ac860d59bc805.bindPopup(popup_ed18fac7478708c44c40416ad36f3265)
+        ;
+
+        
+    
+    
+            marker_f5ba9d78791679ae756ac860d59bc805.bindTooltip(
+                `<div>
+                     Konban NYC
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_f5ba9d78791679ae756ac860d59bc805.setIcon(icon_4bbf973153d0fd0ef92d1aab0183d235);
+            
+    
+            var marker_0f8949182ea3bd05f3da21fa226eeac3 = L.marker(
+                [40.7142, -73.9972],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_d056644d10977386a98920318bb11fb6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_aded8969aa6cd6c12b19d054ad2507e7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d92b394f62685a80c38a47717affcf16 = $(`<div id="html_d92b394f62685a80c38a47717affcf16" style="width: 100.0%; height: 100.0%;"><b>Chinese Tuxedo</b><br>Chinese<br>Alternativa de cena<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7142,-73.9972'>📍 Navegar</a></div>`)[0];
+                popup_aded8969aa6cd6c12b19d054ad2507e7.setContent(html_d92b394f62685a80c38a47717affcf16);
+            
+        
+
+        marker_0f8949182ea3bd05f3da21fa226eeac3.bindPopup(popup_aded8969aa6cd6c12b19d054ad2507e7)
+        ;
+
+        
+    
+    
+            marker_0f8949182ea3bd05f3da21fa226eeac3.bindTooltip(
+                `<div>
+                     Chinese Tuxedo
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_0f8949182ea3bd05f3da21fa226eeac3.setIcon(icon_d056644d10977386a98920318bb11fb6);
+            
+    
+            var marker_fdbe4bcdb6926936478ac3d01bce412f = L.marker(
+                [40.7142, -73.997],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_053b3ff0e2f86e51620ba13eff691e6d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ddd5b6a9142f3c4edfce513e4902ebbb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_38457e7c94f860064c7d5f9d74a8cbb0 = $(`<div id="html_38457e7c94f860064c7d5f9d74a8cbb0" style="width: 100.0%; height: 100.0%;"><b>Apotheke Chinatown</b><br>Cocktail bar<br>Drinks<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7142,-73.997'>📍 Navegar</a></div>`)[0];
+                popup_ddd5b6a9142f3c4edfce513e4902ebbb.setContent(html_38457e7c94f860064c7d5f9d74a8cbb0);
+            
+        
+
+        marker_fdbe4bcdb6926936478ac3d01bce412f.bindPopup(popup_ddd5b6a9142f3c4edfce513e4902ebbb)
+        ;
+
+        
+    
+    
+            marker_fdbe4bcdb6926936478ac3d01bce412f.bindTooltip(
+                `<div>
+                     Apotheke Chinatown
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fdbe4bcdb6926936478ac3d01bce412f.setIcon(icon_053b3ff0e2f86e51620ba13eff691e6d);
+            
+    
+            var marker_72c0ce7e4d6bc3a7a54e7fc01161619e = L.marker(
+                [40.7152, -73.9971],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_4939af6a2f0b56ca4d833d10ff3c8670 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_037e94186c178c8e2981accedb78ec8f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_f9a9ea90cc9baba17401527326f9eedd = $(`<div id="html_f9a9ea90cc9baba17401527326f9eedd" style="width: 100.0%; height: 100.0%;"><b>Wo Hop</b><br>Chinese<br>Viernes — comida alternativa<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7152,-73.9971'>📍 Navegar</a></div>`)[0];
+                popup_037e94186c178c8e2981accedb78ec8f.setContent(html_f9a9ea90cc9baba17401527326f9eedd);
+            
+        
+
+        marker_72c0ce7e4d6bc3a7a54e7fc01161619e.bindPopup(popup_037e94186c178c8e2981accedb78ec8f)
+        ;
+
+        
+    
+    
+            marker_72c0ce7e4d6bc3a7a54e7fc01161619e.bindTooltip(
+                `<div>
+                     Wo Hop
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_72c0ce7e4d6bc3a7a54e7fc01161619e.setIcon(icon_4939af6a2f0b56ca4d833d10ff3c8670);
+            
+    
+            var marker_454510be2df3a528ec1da877dea41953 = L.marker(
+                [40.7195, -73.996],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_b9e1c416c944c558b904a15199b1477e = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f0f91ecb0c379cfee9c919e5feb99b55 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b089d088190f5897b0c18f0f5d2dcdbb = $(`<div id="html_b089d088190f5897b0c18f0f5d2dcdbb" style="width: 100.0%; height: 100.0%;"><b>Ceres</b><br>Pizza<br>Viernes — snack<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7195,-73.996'>📍 Navegar</a></div>`)[0];
+                popup_f0f91ecb0c379cfee9c919e5feb99b55.setContent(html_b089d088190f5897b0c18f0f5d2dcdbb);
+            
+        
+
+        marker_454510be2df3a528ec1da877dea41953.bindPopup(popup_f0f91ecb0c379cfee9c919e5feb99b55)
+        ;
+
+        
+    
+    
+            marker_454510be2df3a528ec1da877dea41953.bindTooltip(
+                `<div>
+                     Ceres
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_454510be2df3a528ec1da877dea41953.setIcon(icon_b9e1c416c944c558b904a15199b1477e);
+            
+    
+            var marker_9a9f772b589d3ebb55cafc067b9cd443 = L.marker(
+                [40.718, -73.9937],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_05c8deb0d767fc3db8f5c5f18d958cf8 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_af0f8565db7d3cac348005554570b4fd = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_624d58dd6fb3672e444f8d704fe8dcaa = $(`<div id="html_624d58dd6fb3672e444f8d704fe8dcaa" style="width: 100.0%; height: 100.0%;"><b>Silence Please</b><br>Cafe<br>Viernes — café<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.718,-73.9937'>📍 Navegar</a></div>`)[0];
+                popup_af0f8565db7d3cac348005554570b4fd.setContent(html_624d58dd6fb3672e444f8d704fe8dcaa);
+            
+        
+
+        marker_9a9f772b589d3ebb55cafc067b9cd443.bindPopup(popup_af0f8565db7d3cac348005554570b4fd)
+        ;
+
+        
+    
+    
+            marker_9a9f772b589d3ebb55cafc067b9cd443.bindTooltip(
+                `<div>
+                     Silence Please
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_9a9f772b589d3ebb55cafc067b9cd443.setIcon(icon_05c8deb0d767fc3db8f5c5f18d958cf8);
+            
+    
+            var marker_16fd66a4243b7081315f022de4b68d3b = L.marker(
+                [40.7223, -73.9875],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_5d3e23c17d59825512dbdff522cbad8c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4ed91a61a184f006dc6cd824549ffdbc = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b38f3e198affcb011ca026705ec1b3e5 = $(`<div id="html_b38f3e198affcb011ca026705ec1b3e5" style="width: 100.0%; height: 100.0%;"><b>Katz's Delicatessen</b><br>Jewish deli / pastrami<br>Viernes — MUST<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7223,-73.9875'>📍 Navegar</a></div>`)[0];
+                popup_4ed91a61a184f006dc6cd824549ffdbc.setContent(html_b38f3e198affcb011ca026705ec1b3e5);
+            
+        
+
+        marker_16fd66a4243b7081315f022de4b68d3b.bindPopup(popup_4ed91a61a184f006dc6cd824549ffdbc)
+        ;
+
+        
+    
+    
+            marker_16fd66a4243b7081315f022de4b68d3b.bindTooltip(
+                `<div>
+                     Katz's Delicatessen
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_16fd66a4243b7081315f022de4b68d3b.setIcon(icon_5d3e23c17d59825512dbdff522cbad8c);
+            
+    
+            var marker_fcb4cdb78b8269186e69f1e85418bd9d = L.marker(
+                [40.757, -73.9897],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_0b043c2f6678a2b1a617ccdc953d6b23 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5959613520f42e3f4877af5e5c6b2931 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d20b362f1eb5a7908009f7542fddeaaa = $(`<div id="html_d20b362f1eb5a7908009f7542fddeaaa" style="width: 100.0%; height: 100.0%;"><b>Los Tacos No. 1</b><br>Mexican / tacos<br>Jueves — almuerzo<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.757,-73.9897'>📍 Navegar</a></div>`)[0];
+                popup_5959613520f42e3f4877af5e5c6b2931.setContent(html_d20b362f1eb5a7908009f7542fddeaaa);
+            
+        
+
+        marker_fcb4cdb78b8269186e69f1e85418bd9d.bindPopup(popup_5959613520f42e3f4877af5e5c6b2931)
+        ;
+
+        
+    
+    
+            marker_fcb4cdb78b8269186e69f1e85418bd9d.bindTooltip(
+                `<div>
+                     Los Tacos No. 1
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_fcb4cdb78b8269186e69f1e85418bd9d.setIcon(icon_0b043c2f6678a2b1a617ccdc953d6b23);
+            
+    
+            var marker_77085ea9bdfe16d6d07659b8f93f80c7 = L.marker(
+                [40.728, -73.958],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_8b86cb853f7d04014827c0cdc792a393 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_580323406b0aa8bb042dfdb9e7751b35 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4fc6a7509fbd23aedeea31ea3eba4c37 = $(`<div id="html_4fc6a7509fbd23aedeea31ea3eba4c37" style="width: 100.0%; height: 100.0%;"><b>Taqueria Ramirez</b><br>Mexican / tacos<br>Sábado — comida<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.728,-73.958'>📍 Navegar</a></div>`)[0];
+                popup_580323406b0aa8bb042dfdb9e7751b35.setContent(html_4fc6a7509fbd23aedeea31ea3eba4c37);
+            
+        
+
+        marker_77085ea9bdfe16d6d07659b8f93f80c7.bindPopup(popup_580323406b0aa8bb042dfdb9e7751b35)
+        ;
+
+        
+    
+    
+            marker_77085ea9bdfe16d6d07659b8f93f80c7.bindTooltip(
+                `<div>
+                     Taqueria Ramirez
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_77085ea9bdfe16d6d07659b8f93f80c7.setIcon(icon_8b86cb853f7d04014827c0cdc792a393);
+            
+    
+            var marker_05d4222802dab160ba5224cf3bbeccd4 = L.marker(
+                [40.7152, -73.9584],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_b0d8b55de566017ccc59bee0bcb549d6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9fba1d926106c40acf610592f5064a05 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3a56d163464f82a0605d69418db8ad7c = $(`<div id="html_3a56d163464f82a0605d69418db8ad7c" style="width: 100.0%; height: 100.0%;"><b>Fini Pizza</b><br>Pizza<br>Sábado — late snack<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7152,-73.9584'>📍 Navegar</a></div>`)[0];
+                popup_9fba1d926106c40acf610592f5064a05.setContent(html_3a56d163464f82a0605d69418db8ad7c);
+            
+        
+
+        marker_05d4222802dab160ba5224cf3bbeccd4.bindPopup(popup_9fba1d926106c40acf610592f5064a05)
+        ;
+
+        
+    
+    
+            marker_05d4222802dab160ba5224cf3bbeccd4.bindTooltip(
+                `<div>
+                     Fini Pizza
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_05d4222802dab160ba5224cf3bbeccd4.setIcon(icon_b0d8b55de566017ccc59bee0bcb549d6);
+            
+    
+            var marker_a8bc592b15b0012fe9bd97fd65361381 = L.marker(
+                [40.729, -73.9583],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_a8df2d2f509b3d0a7fe79eb06af58912 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54e1b70251eeb9121ff338bdacc50cf9 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_dfd6202d95854c2e0a1bc47986302310 = $(`<div id="html_dfd6202d95854c2e0a1bc47986302310" style="width: 100.0%; height: 100.0%;"><b>Oxomoco</b><br>Mexican<br>Alternativa de cena<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.729,-73.9583'>📍 Navegar</a></div>`)[0];
+                popup_54e1b70251eeb9121ff338bdacc50cf9.setContent(html_dfd6202d95854c2e0a1bc47986302310);
+            
+        
+
+        marker_a8bc592b15b0012fe9bd97fd65361381.bindPopup(popup_54e1b70251eeb9121ff338bdacc50cf9)
+        ;
+
+        
+    
+    
+            marker_a8bc592b15b0012fe9bd97fd65361381.bindTooltip(
+                `<div>
+                     Oxomoco
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_a8bc592b15b0012fe9bd97fd65361381.setIcon(icon_a8df2d2f509b3d0a7fe79eb06af58912);
+            
+    
+            var marker_47bccf24ae0b39c919defe126a2a5ab2 = L.marker(
+                [40.7225, -73.9575],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_b765d99940c0397ee33709d6a8079fc6 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5a33b576c74552623864389d0851e3ca = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_76f7ff1de71a6b6ef21f49d790dcfba8 = $(`<div id="html_76f7ff1de71a6b6ef21f49d790dcfba8" style="width: 100.0%; height: 100.0%;"><b>Westlight</b><br>Rooftop / drinks<br>Sábado — drinks / cena ligera<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7225,-73.9575'>📍 Navegar</a></div>`)[0];
+                popup_5a33b576c74552623864389d0851e3ca.setContent(html_76f7ff1de71a6b6ef21f49d790dcfba8);
+            
+        
+
+        marker_47bccf24ae0b39c919defe126a2a5ab2.bindPopup(popup_5a33b576c74552623864389d0851e3ca)
+        ;
+
+        
+    
+    
+            marker_47bccf24ae0b39c919defe126a2a5ab2.bindTooltip(
+                `<div>
+                     Westlight
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_47bccf24ae0b39c919defe126a2a5ab2.setIcon(icon_b765d99940c0397ee33709d6a8079fc6);
+            
+    
+            var marker_7d7d930fd0384546adecd6e02150a2fc = L.marker(
+                [40.7308, -74.0022],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_0478e0bd4cd2389126acd63176277e7d = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4db8b854737bc2ac301ba9ddbe5996a8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7a513234944dc414a750db77fcdd1c61 = $(`<div id="html_7a513234944dc414a750db77fcdd1c61" style="width: 100.0%; height: 100.0%;"><b>Minetta Tavern</b><br>Classic NYC / American-French<br>Jueves — cena principal<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7308,-74.0022'>📍 Navegar</a></div>`)[0];
+                popup_4db8b854737bc2ac301ba9ddbe5996a8.setContent(html_7a513234944dc414a750db77fcdd1c61);
+            
+        
+
+        marker_7d7d930fd0384546adecd6e02150a2fc.bindPopup(popup_4db8b854737bc2ac301ba9ddbe5996a8)
+        ;
+
+        
+    
+    
+            marker_7d7d930fd0384546adecd6e02150a2fc.bindTooltip(
+                `<div>
+                     Minetta Tavern
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_7d7d930fd0384546adecd6e02150a2fc.setIcon(icon_0478e0bd4cd2389126acd63176277e7d);
+            
+    
+            var marker_8bbcdc482521ce71a8fd2c6aaa1a7c24 = L.marker(
+                [40.7625, -73.9727],
+                {
+}
+            ).addTo(feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9);
+        
+    
+            var icon_f06ff01081c5571e0a11281acd61fe19 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "darkpurple",
+  "iconColor": "white",
+  "icon": "cutlery",
+  "prefix": "fa",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_4b27d87705dec93fc77399f784200bf8 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_830083a4d89540b2b1fb4616256af37e = $(`<div id="html_830083a4d89540b2b1fb4616256af37e" style="width: 100.0%; height: 100.0%;"><b>Monkey Bar</b><br>Classic NYC / American<br>Alternativa de cena<br><a target='_blank' href='https://www.google.com/maps/dir/?api=1&destination=40.7625,-73.9727'>📍 Navegar</a></div>`)[0];
+                popup_4b27d87705dec93fc77399f784200bf8.setContent(html_830083a4d89540b2b1fb4616256af37e);
+            
+        
+
+        marker_8bbcdc482521ce71a8fd2c6aaa1a7c24.bindPopup(popup_4b27d87705dec93fc77399f784200bf8)
+        ;
+
+        
+    
+    
+            marker_8bbcdc482521ce71a8fd2c6aaa1a7c24.bindTooltip(
+                `<div>
+                     Monkey Bar
+                 </div>`,
+                {
+  "sticky": true,
+}
+            );
+        
+    
+                marker_8bbcdc482521ce71a8fd2c6aaa1a7c24.setIcon(icon_f06ff01081c5571e0a11281acd61fe19);
+            
+    
+            feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9.addTo(map_11acaca25b26ad42a6265ed99c606c49);
+        
+    
+            var layer_control_5ab582904622448c014538a271d58205_layers = {
+                base_layers : {
+                    "openstreetmap" : tile_layer_2a240daef5f80adf6afce50f8fd8e424,
+                },
+                overlays :  {
+                    "Mi\u00e9rcoles 2" : feature_group_8cf78001c106b31b7faa7eaad18ba3c1,
+                    "Jueves 3" : feature_group_54d58fe5b371ee73ab8fc4c85e6feba7,
+                    "Viernes 4" : feature_group_67a71d44f7454acef6b2153bc53e031b,
+                    "S\u00e1bado 5" : feature_group_8db8eced4b0d9acb8da3bcde341ce662,
+                    "Domingo 6" : feature_group_712a66d368ff02ec3b2ea763931be6a0,
+                    "\ud83c\udfe8 Hoteles" : feature_group_4072a70ea8edc82fe7cc41f02cd6e18f,
+                    "\ud83c\udf74 Solo restaurantes recomendados" : feature_group_6e5e7c28f45905fa0a6d05b0c61a54f9,
+                },
+            };
+            let layer_control_5ab582904622448c014538a271d58205 = L.control.layers(
+                layer_control_5ab582904622448c014538a271d58205_layers.base_layers,
+                layer_control_5ab582904622448c014538a271d58205_layers.overlays,
+                {
+  "position": "topright",
+  "collapsed": false,
+  "autoZIndex": true,
+}
+            ).addTo(map_11acaca25b26ad42a6265ed99c606c49);
+
+        
+</script>
+</html>
