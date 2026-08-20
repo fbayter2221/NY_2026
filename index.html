@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>NYC · Itinerario final · 2–6 septiembre 2026</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#f3f4f6;color:#18202d;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif}
+.header{background:#101827;color:#fff;padding:24px 26px 18px;padding-top:calc(24px + env(safe-area-inset-top))}
+.title{font-size:27px;font-weight:800;line-height:1.2;letter-spacing:-.3px}
+.sub{color:#aeb7c5;margin-top:8px;font-size:15px}
+.pills{display:flex;gap:9px;overflow-x:auto;padding-top:17px;scrollbar-width:none}
+.pills::-webkit-scrollbar{display:none}
+.pill{flex:0 0 auto;border:0;border-radius:28px;background:#303b4d;color:#fff;padding:11px 15px;font-weight:700;font-size:16px}
+.pill.on{background:#fff;color:#18202d}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:7px}
+.map-tools{background:#101827;padding:0 26px 16px;display:flex;gap:9px}
+.tool{border:0;border-radius:22px;background:#303b4d;color:#fff;padding:9px 13px;font-size:14px;font-weight:700}
+.tool.on{background:#fff;color:#18202d}
+#map{height:56vh;min-height:410px;width:100%}
+.note{background:#fff;color:#6b7280;padding:10px 24px;font-size:15px}
+.routes{padding:14px 20px 30px}
+.card{background:#fff;border-radius:20px;padding:20px 22px;margin-bottom:14px;border-left:6px solid;box-shadow:0 2px 10px #0000000c}
+.card h2{margin:0 0 9px;font-size:23px}
+.route{font-size:18px;line-height:1.45;color:#515b6b}
+.route b{color:#18202d}
+.hide{display:none}
+.footer{text-align:center;color:#7b8491;font-size:12px;padding:5px 20px 28px}
+.leaflet-popup-content{font-size:14px;line-height:1.35}
+@media(min-width:800px){.routes{max-width:1100px;margin:auto}}
+</style>
+</head>
+<body>
+<header class="header">
+<div class="title">🗽 NYC · Itinerario 2–6 septiembre 2026</div>
+<div class="sub">Versión final · aeropuertos omitidos</div>
+<div class="pills" id="pills"></div>
+</header>
+<div class="map-tools">
+<button class="tool" id="restaurantBtn" onclick="toggleRestaurants()">🍴 Recomendaciones</button>
+</div>
+<div id="map"></div>
+<div class="note">Toca un punto para ver hora, actividad, transporte y navegación.</div>
+<section class="routes" id="routes"></section>
+<div class="footer">🏨 Hotel Stanford = tú · The New Yorker = tu amigo<br>🍴 Comidas/cenas solo de la lista de recomendaciones</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const DAYS = {"Miércoles 2": {"short": "Mié 2", "color": "#3B82F6", "items": [{"name": "Hotel Stanford", "time": "12:00", "desc": "Llegada a JFK, traslado y dejar equipaje", "mode": "Taxi/Uber desde JFK", "lat": 40.7487, "lng": -73.989}, {"name": "The New Yorker", "time": "14:15", "desc": "Encuentro con tu amigo / equipaje", "mode": "A pie desde Penn Station", "lat": 40.7527, "lng": -73.9934}, {"name": "Salt Hank", "time": "14:45", "desc": "Almuerzo", "mode": "Subway/taxi", "lat": 40.7334, "lng": -74.003}, {"name": "Washington Square Park", "time": "15:45", "desc": "Greenwich Village + Bleecker Street", "mode": "A pie", "lat": 40.7308, "lng": -73.9973}, {"name": "John's of Bleecker Street", "time": "17:00", "desc": "Cena temprana — pizza", "mode": "A pie", "lat": 40.7327, "lng": -74.0036}, {"name": "The Vessel", "time": "18:15", "desc": "Inicio del recorrido recomendado de Hudson Yards", "mode": "Subway", "lat": 40.753, "lng": -74.0024}, {"name": "High Line", "time": "18:30", "desc": "Caminar hacia el sur", "mode": "A pie", "lat": 40.7478, "lng": -74.0048}, {"name": "Chelsea Market", "time": "19:30", "desc": "Paseo / snack opcional", "mode": "A pie", "lat": 40.742, "lng": -74.0061}, {"name": "Little Island", "time": "20:15", "desc": "Waterfront + atardecer", "mode": "A pie", "lat": 40.742, "lng": -74.011}]}, "Jueves 3": {"short": "Jue 3", "color": "#22C55E", "items": [{"name": "Hotel Stanford", "time": "08:15", "desc": "Salida", "mode": "A pie", "lat": 40.7487, "lng": -73.989}, {"name": "AMNH", "time": "10:00", "desc": "CityPASS — American Museum of Natural History", "mode": "Subway", "lat": 40.7813, "lng": -73.9737}, {"name": "Los Tacos No. 1", "time": "12:45", "desc": "Almuerzo", "mode": "Subway", "lat": 40.757, "lng": -73.9897}, {"name": "Pier 83 / Circle Line", "time": "14:15", "desc": "Llegar con margen", "mode": "Subway + a pie", "lat": 40.7675, "lng": -73.9952}, {"name": "Pier 83 / Circle Line", "time": "15:00", "desc": "CityPASS — Landmarks Cruise", "mode": "Circle Line", "lat": 40.7675, "lng": -73.9952}, {"name": "Top of the Rock", "time": "17:45", "desc": "CityPASS — reservar cerca del sunset", "mode": "Subway + a pie", "lat": 40.759, "lng": -73.979}, {"name": "Peak", "time": "19:30", "desc": "Solo cocktail + vista; NO cena", "mode": "A pie", "lat": 40.7532, "lng": -74.0019}, {"name": "Minetta Tavern", "time": "20:45", "desc": "Cena principal", "mode": "Subway/taxi", "lat": 40.7308, "lng": -74.0022}]}, "Viernes 4": {"short": "Vie 4", "color": "#F97316", "items": [{"name": "Hotel Stanford", "time": "08:30", "desc": "Salida", "mode": "A pie", "lat": 40.7487, "lng": -73.989}, {"name": "Empire State Building", "time": "09:00", "desc": "CityPASS — AM/PM Experience", "mode": "A pie", "lat": 40.7484, "lng": -73.9857}, {"name": "Silence Please", "time": "10:45", "desc": "Café", "mode": "Subway", "lat": 40.718, "lng": -73.9937}, {"name": "Doyers Street", "time": "11:15", "desc": "Chinatown — zona recomendada para caminar", "mode": "A pie", "lat": 40.7147, "lng": -73.997}, {"name": "Wo Hop", "time": "11:45", "desc": "Comida china opcional", "mode": "A pie", "lat": 40.7152, "lng": -73.9971}, {"name": "Katz's Delicatessen", "time": "12:30", "desc": "MUST — pastrami", "mode": "A pie", "lat": 40.7223, "lng": -73.9875}, {"name": "Ceres", "time": "13:30", "desc": "Pizza / snack", "mode": "A pie", "lat": 40.7195, "lng": -73.996}, {"name": "SoHo", "time": "14:00", "desc": "SoHo / Nolita", "mode": "A pie", "lat": 40.7233, "lng": -74.0}, {"name": "DUMBO", "time": "15:30", "desc": "Washington St + Brooklyn Bridge Park", "mode": "Subway", "lat": 40.7033, "lng": -73.9885}, {"name": "The New Yorker", "time": "17:00", "desc": "Descanso / recoger lo necesario", "mode": "Subway", "lat": 40.7527, "lng": -73.9934}, {"name": "US Open / Mets-Willets Point", "time": "18:30", "desc": "Traslado al US Open", "mode": "Subway 7", "lat": 40.7546, "lng": -73.8456}, {"name": "Arthur Ashe Stadium", "time": "19:00", "desc": "US Open — FIJO", "mode": "A pie", "lat": 40.7508, "lng": -73.847}]}, "Sábado 5": {"short": "Sáb 5", "color": "#A855F7", "items": [{"name": "Hotel Stanford", "time": "07:15", "desc": "Salida temprana", "mode": "Subway", "lat": 40.7487, "lng": -73.989}, {"name": "Statue of Liberty / Battery Park", "time": "08:15", "desc": "CityPASS — llegada con margen para seguridad", "mode": "Subway", "lat": 40.7033, "lng": -74.017}, {"name": "Liberty Island", "time": "09:00", "desc": "Statue of Liberty", "mode": "Ferry", "lat": 40.6892, "lng": -74.0445}, {"name": "Ellis Island", "time": "10:45", "desc": "Ellis Island", "mode": "Ferry", "lat": 40.6995, "lng": -74.0396}, {"name": "Hotel Stanford", "time": "12:30", "desc": "Regreso / descanso corto", "mode": "Subway", "lat": 40.7487, "lng": -73.989}, {"name": "Central Park - Bethesda", "time": "13:30", "desc": "Central Park — FIJO", "mode": "Subway + a pie", "lat": 40.774, "lng": -73.9705}, {"name": "Central Park - Bow Bridge", "time": "14:30", "desc": "Paseo", "mode": "A pie", "lat": 40.7754, "lng": -73.9717}, {"name": "Strawberry Fields", "time": "15:15", "desc": "Paseo", "mode": "A pie", "lat": 40.7755, "lng": -73.9768}, {"name": "Taqueria Ramirez", "time": "17:00", "desc": "Tacos", "mode": "Subway", "lat": 40.728, "lng": -73.958}, {"name": "Domino Park", "time": "18:15", "desc": "Waterfront + skyline", "mode": "A pie", "lat": 40.717, "lng": -73.9645}, {"name": "Westlight", "time": "19:30", "desc": "Rooftop — drinks / cena ligera", "mode": "A pie", "lat": 40.7225, "lng": -73.9575}, {"name": "Fini Pizza", "time": "21:15", "desc": "Late snack opcional", "mode": "A pie", "lat": 40.7152, "lng": -73.9584}]}};
+const RESTAURANTS = [{"name": "John's of Bleecker Street", "type": "Pizza", "lat": 40.7327, "lng": -74.0036}, {"name": "Salt Hank's", "type": "Restaurant recommendation", "lat": 40.7334, "lng": -74.003}, {"name": "Konban NYC", "type": "Japanese / izakaya", "lat": 40.741, "lng": -74.0058}, {"name": "Chinese Tuxedo", "type": "Chinese", "lat": 40.7142, "lng": -73.9972}, {"name": "Apotheke Chinatown", "type": "Cocktail bar", "lat": 40.7142, "lng": -73.997}, {"name": "Wo Hop", "type": "Chinese", "lat": 40.7152, "lng": -73.9971}, {"name": "Ceres", "type": "Pizza", "lat": 40.7195, "lng": -73.996}, {"name": "Silence Please", "type": "Cafe", "lat": 40.718, "lng": -73.9937}, {"name": "Katz's Delicatessen", "type": "Jewish deli / pastrami", "lat": 40.7223, "lng": -73.9875}, {"name": "Los Tacos No. 1", "type": "Mexican / tacos", "lat": 40.757, "lng": -73.9897}, {"name": "Taqueria Ramirez", "type": "Mexican / tacos", "lat": 40.728, "lng": -73.958}, {"name": "Fini Pizza", "type": "Pizza", "lat": 40.7152, "lng": -73.9584}, {"name": "Oxomoco", "type": "Mexican", "lat": 40.729, "lng": -73.9583}, {"name": "Westlight", "type": "Rooftop / drinks", "lat": 40.7225, "lng": -73.9575}, {"name": "Minetta Tavern", "type": "Classic NYC / American-French", "lat": 40.7308, "lng": -74.0022}, {"name": "Monkey Bar", "type": "Classic NYC / American", "lat": 40.7625, "lng": -73.9727}];
+const order = Object.keys(DAYS);
+let active = "Todos";
+let restaurantsOn = false;
+
+const map = L.map("map").setView([40.745,-73.98],12);
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+ maxZoom:19, attribution:"&copy; OpenStreetMap contributors"
+}).addTo(map);
+
+const layers = {};
+function nav(lat,lng){return `https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`}
+function numberedIcon(color,n){
+ return L.divIcon({className:"",html:`<div style="width:34px;height:34px;border-radius:50%;background:${color};border:3px solid white;box-shadow:0 2px 7px #0005;color:white;font-weight:800;text-align:center;line-height:28px">${n}</div>`,iconSize:[34,34],iconAnchor:[17,17]});
+}
+function hotelIcon(){
+ return L.divIcon({className:"",html:`<div style="width:38px;height:38px;border-radius:50%;background:#202938;border:3px solid white;box-shadow:0 2px 7px #0005;text-align:center;line-height:32px;font-size:18px">🏨</div>`,iconSize:[38,38],iconAnchor:[19,19]});
+}
+for(const day of order){
+ const d=DAYS[day],g=L.layerGroup(),xy=[];
+ d.items.forEach((x,i)=>{
+  xy.push([x.lat,x.lng]);
+  L.marker([x.lat,x.lng],{icon:numberedIcon(d.color,i+1)})
+   .bindPopup(`<b>${x.time} · ${x.name}</b><br>${x.desc}<br><small>🚇 ${x.mode}</small><br><br><a target="_blank" href="${nav(x.lat,x.lng)}">📍 Navegar con Google Maps</a>`).addTo(g);
+ });
+ L.polyline(xy,{color:d.color,weight:5,opacity:.82}).addTo(g);
+ layers[day]=g;
+}
+const hotels=L.layerGroup();
+L.marker([40.7487,-73.9890],{icon:hotelIcon()}).bindPopup("<b>Hotel Stanford</b><br>Tu hotel").addTo(hotels);
+L.marker([40.7527,-73.9934],{icon:hotelIcon()}).bindPopup("<b>The New Yorker</b><br>Hotel de tu amigo").addTo(hotels);
+hotels.addTo(map);
+
+const restaurantLayer=L.layerGroup();
+for(const r of RESTAURANTS){
+ L.circleMarker([r.lat,r.lng],{radius:7,color:"#7c3aed",fillColor:"#a855f7",fillOpacity:.85,weight:2})
+ .bindPopup(`<b>${r.name}</b><br>${r.type}<br><br><a target="_blank" href="${nav(r.lat,r.lng)}">📍 Navegar con Google Maps</a>`)
+ .addTo(restaurantLayer);
+}
+
+function renderPills(){
+ const e=document.getElementById("pills"); e.innerHTML="";
+ let b=document.createElement("button");
+ b.className="pill "+(active==="Todos"?"on":""); b.textContent="Todos"; b.onclick=()=>selectDay("Todos"); e.appendChild(b);
+ for(const day of order){
+  b=document.createElement("button"); b.className="pill "+(active===day?"on":"");
+  b.innerHTML=`<span class="sw" style="background:${DAYS[day].color}"></span>${DAYS[day].short}`;
+  b.onclick=()=>selectDay(day); e.appendChild(b);
+ }
+}
+function renderCards(){
+ const e=document.getElementById("routes"); e.innerHTML="";
+ for(const day of order){
+  const d=DAYS[day], c=document.createElement("div");
+  c.className="card "+(active!=="Todos"&&active!==day?"hide":"");
+  c.style.borderLeftColor=d.color;
+  c.innerHTML=`<h2>${day}</h2><div class="route">${d.items.map((x,i)=>`${i+1}. ${x.name}`).join(" → ")}</div>`;
+  c.onclick=()=>selectDay(day);
+  e.appendChild(c);
+ }
+}
+function selectDay(day){
+ active=day; renderPills(); renderCards();
+ for(const d of order){
+  if(active==="Todos"||d===active) layers[d].addTo(map);
+  else if(map.hasLayer(layers[d])) map.removeLayer(layers[d]);
+ }
+ if(active!=="Todos"){
+  map.fitBounds(DAYS[active].items.map(x=>[x.lat,x.lng]),{padding:[28,28],maxZoom:13});
+ } else map.setView([40.745,-73.98],12);
+}
+function toggleRestaurants(){
+ restaurantsOn=!restaurantsOn;
+ const b=document.getElementById("restaurantBtn");
+ if(restaurantsOn){restaurantLayer.addTo(map);b.classList.add("on");}
+ else{map.removeLayer(restaurantLayer);b.classList.remove("on");}
+}
+renderPills(); renderCards(); selectDay("Todos");
+</script>
+</body>
+</html>
